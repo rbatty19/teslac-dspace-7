@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "noEmitHelpers": true,
+    "importHelpers": true,
+    "noImplicitAny": false,
+    "strictNullChecks": false,
+    "skipDefaultLibCheck": true,
+    "pretty": true,
+    "baseUrl": ".",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "types": [
+      "jasmine",
+      "node"
+    ],
+    "lib": [
+      "dom",
+      "es6",
+      "es2015",
+      "es2016",
+      "es2017"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "src/**/*.spec.ts",
+    "src/**/*.e2e.ts",
+    "src/main.server.aot.ts"
+  ],
+  "compileOnSave": false,
+  "buildOnSave": false,
+  "atom": {
+    "rewriteTsconfig": false
+  }
+}

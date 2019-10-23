@@ -1,0 +1,32 @@
+sudo: required
+dist: trusty
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+
+language: node_js
+
+node_js:
+  - "8"
+  - "9"
+
+cache:
+  yarn: true
+
+bundler_args: --retry 5
+
+before_install:
+  - travis_retry yarn run global
+
+install:
+  - travis_retry yarn install
+
+script:
+  # Use Chromium instead of Chrome.
+  - export CHROME_BIN=chromium-browser
+  - yarn run build
+  - yarn run ci
+  - cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js

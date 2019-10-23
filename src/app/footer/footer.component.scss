@@ -1,0 +1,19 @@
+@import '../../styles/variables.scss';
+$footer-bg: $gray-100;
+$footer-border: 1px solid darken($footer-bg, 10%);
+$footer-padding: $spacer * 1.5;
+$footer-logo-height: 55px;
+
+.footer {
+  background-color: $footer-bg;
+  border-top: $footer-border;
+  text-align: center;
+  padding: $footer-padding;
+
+  p {
+    margin: 0;
+  }
+  img {
+    height: $footer-logo-height;
+  }
+}

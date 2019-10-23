@@ -1,0 +1,20 @@
+@import "../../../styles/_variables.scss";
+
+.autocomplete {
+    width: 100%;
+    .dropdown-item {
+        white-space: normal;
+        word-break: break-word;
+        padding: $input-padding-y $input-padding-x;
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+form {
+    position: relative;
+    .dropdown-menu {
+        position: absolute;
+    }
+}

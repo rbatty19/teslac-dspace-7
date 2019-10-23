@@ -1,0 +1,20 @@
+@import "../../../../../../../styles/variables";
+
+:host /deep/ .dropdown-menu {
+  width: 100% !important;
+  max-height: $dropdown-menu-max-height;
+  overflow-y: auto !important;
+  overflow-x: hidden;
+}
+
+:host /deep/ .dropdown-item {
+  border-bottom: $dropdown-border-width solid $dropdown-border-color;
+}
+
+:host /deep/ .dropdown-item.active,
+:host /deep/ .dropdown-item:active,
+:host /deep/ .dropdown-item:focus,
+:host /deep/ .dropdown-item:hover {
+  color: $dropdown-link-hover-color !important;
+  background-color: $dropdown-link-hover-bg !important;
+}

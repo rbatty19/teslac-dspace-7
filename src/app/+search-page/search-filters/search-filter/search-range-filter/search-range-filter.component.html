@@ -1,0 +1,31 @@
+<div>
+    <div class="filters py-2">
+        <form #form="ngForm" (ngSubmit)="onSubmit()" class="add-filter row"
+              [action]="getCurrentUrl()">
+            <div class="col-6">
+                <input type="text" [(ngModel)]="range[0]" [name]="filterConfig.paramName + '.min'"
+                       class="form-control" (blur)="onSubmit()"
+                       aria-label="Mininum value"
+                       [placeholder]="'search.filters.filter.' + filterConfig.name + '.min.placeholder'| translate"/>
+            </div>
+            <div class="col-6">
+                <input type="text" [(ngModel)]="range[1]" [name]="filterConfig.paramName + '.max'"
+                       class="form-control" (blur)="onSubmit()"
+                       aria-label="Maximum value"
+                       [placeholder]="'search.filters.filter.' + filterConfig.name + '.max.placeholder'| translate"/>
+            </div>
+            <input type="submit" class="d-none"/>
+        </form>
+
+        <ng-container *ngIf="shouldShowSlider()">
+            <nouislider [connect]="true" [min]="min" [max]="max" [step]="1"
+                        [(ngModel)]="range" (change)="onSubmit()" ngDefaultControl></nouislider>
+
+        </ng-container>
+      <ng-container *ngFor="let page of (filterValues$ | async)?.payload">
+        <div [@facetLoad]="animationState">
+          <ds-search-facet-range-option *ngFor="let value of page.page; trackBy: trackUpdate" [filterConfig]="filterConfig" [filterValue]="value" [inPlaceSearch]="inPlaceSearch"></ds-search-facet-range-option>
+          </div>
+        </ng-container>
+    </div>
+</div>
